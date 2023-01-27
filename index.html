@@ -1,23 +1,47 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>Ejemplo CRUD</title>
 </head>
 
 <body>
-    <form id="form">
-        <label for="name">Nombre y apellido</label>
-        <input id="name" name="name" type="text">
-        <button id="add-button" type="submit">AGREGAR</button>
-    </form>
+    <header class="header">
+        <ul>
+            <li><a href="#tittle">Inicio</a></li>
+            <li><a href="#addTask">Agregar Tarea</a></li>
+            <li><a href="#taskList">Listado de Tareas</a></li>
+        </ul>
+    </header>
+    <main>
+        <section class="tittle">
+            <a href="tittle"></a>
+            <h1>Listado de tareas</h1>
+        </section>
+        <section class="listInput">
+            <a href="addTask"></a>
+            <form id='form'>
+                <label for='name'>Tarea</label>
+                <input id='name' name='name' type='text'>
+                <button id='add-button' type='submit'>Agregar</button>
+            </form>
+        </section>
+        <section class="taskList">
+            <a href="taskList"></a>
+            <div id='lista-nombres'></div>
+        </section>
+    </main>
 
-    <div id="Lista de nombres"></div>
-
-    <script src="assets/js/main.js"></script>
+        <footer>
+            <li><a href="#tittle">Inicio</a></li>
+            <li><a href="#addTask">Agregar Tarea</a></li>
+            <li><a href="#taskList">Listado de Tareas</a></li>
+        </footer>
+    <script src='assets/js/main.js'></script>
 </body>
 
 </html>
