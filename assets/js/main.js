@@ -34,12 +34,12 @@ const getContacts = () => {
     contacts.forEach((name, index) => {
         const nodeName = document.createElement('p')
         const updateButton = document.createElement('button')
-        updateButton.textContent = `Actualizar ${index + 1}`
+        updateButton.textContent = `Update`
         updateButton.setAttribute('onclick', `updateContact(${index})`)
 
 
         const deleteButton = document.createElement('button')
-        deleteButton.textContent = `Eliminar ${index + 1}`
+        deleteButton.textContent = `Delete`
 
         deleteButton.setAttribute('onclick', `deleteContact(${index})`)
 

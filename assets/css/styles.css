@@ -134,3 +134,10 @@ footer>li {
     color: white;
 
 }
+
+.taskList>div {
+    flex: auto;
+    display: flex;
+    justify-content: center;
+}
+
