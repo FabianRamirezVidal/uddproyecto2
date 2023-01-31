@@ -1,16 +1,16 @@
 function save() {
-    var read = document.getElementById('inputBookIsComplete');
+    var read = document.getElementById('inputTaskIsComplete');
     if (read.checked == true) {
-        bookList = JSON.parse(localStorage.getItem('listItem3')) ?? []
+        tasklist = JSON.parse(localStorage.getItem('listItem3')) ?? []
         var id
-        bookList.length != 0 ? bookList.findLast((item) => id = item.id) : id = 0
+        tasklist.length != 0 ? tasklist.findLast((item) => id = item.id) : id = 0
 
-        if (document.getElementById('inputBookId').value) {
-            bookList.forEach(value => {
-                if (document.getElementById('inputBookId').value == value.id) {
-                    value.title = document.getElementById('inputTaskTitle').value,
-                        value.author = document.getElementById('inputTaskDescr').value,
-                        value.year = document.getElementById('inputTaskDate').value,
+        if (document.getElementById('inputTaskId').value) {
+            tasklist.forEach(value => {
+                if (document.getElementById('inputTaskId').value == value.id) {
+                    value.tasktitle = document.getElementById('inputTasktitle').value,
+                        value.taskdescr = document.getElementById('inputTaskDescr').value,
+                        value.taskdate = document.getElementById('inputTaskDate').value,
                         value.isComplete = 1
                 }
             });
@@ -18,40 +18,40 @@ function save() {
         } else {
             var item = {
                 id: id + 1,
-                title: document.getElementById('inputTaskTitle').value,
-                author: document.getElementById('inputTaskDescr').value,
-                year: document.getElementById('inputTaskDate').value,
+                tasktitle: document.getElementById('inputTaskTitle').value,
+                taskdescr: document.getElementById('inputTaskDescr').value,
+                taskdate: document.getElementById('inputTaskDate').value,
                 isComplete: 1,
             }
-            bookList.push(item)
+            tasklist.push(item)
         }
-        localStorage.setItem('listItem3', JSON.stringify(bookList))
+        localStorage.setItem('listItem3', JSON.stringify(tasklist))
     } else {
 
-        bookList2 = JSON.parse(localStorage.getItem('listItem4')) ?? []
+        tasklist2 = JSON.parse(localStorage.getItem('listItem4')) ?? []
         var id
-        bookList2.length != 0 ? bookList.findLast((item) => id = item.id) : id = 0
-        if (document.getElementById('inputBookId').value) {
-            bookList2.forEach(value => {
-                if (document.getElementById('inputBookId').value == value.id) {
-                    value.title = document.getElementById('inputTaskTitle').value,
-                        value.author = document.getElementById('inputTaskDescr').value,
-                        value.year = document.getElementById('inputTaskDate').value,
+        tasklist2.length != 0 ? tasklist.findLast((item) => id = item.id) : id = 0
+        if (document.getElementById('inputTaskId').value) {
+            tasklist2.forEach(value => {
+                if (document.getElementById('inputTaskId').value == value.id) {
+                    value.tasktitle = document.getElementById('inputTasktitle').value,
+                        value.taskdescr = document.getElementById('inputTaskDescr').value,
+                        value.taskdate = document.getElementById('inputTaskDate').value,
                         value.isComplete = 0
                 }
             });
-            document.getElementById('inputBookId').value = ''
+            document.getElementById('inputTaskId').value = ''
         } else {
             var item = {
                 id: id + 1,
-                title: document.getElementById('inputTaskTitle').value,
-                author: document.getElementById('inputTaskDescr').value,
-                year: document.getElementById('inputTaskDate').value,
+                tasktitle: document.getElementById('inputTasktitle').value,
+                taskdescr: document.getElementById('inputTaskDescr').value,
+                taskdate: document.getElementById('inputTaskDate').value,
                 isComplete: 0,
             }
-            bookList2.push(item)
+            tasklist2.push(item)
         }
-        localStorage.setItem('listItem4', JSON.stringify(bookList2))
+        localStorage.setItem('listItem4', JSON.stringify(tasklist2))
     }
     allData()
     document.getElementById('form').reset()
@@ -59,18 +59,18 @@ function save() {
 function allData() {
 
     table.innerHTML = ``
-    bookList = JSON.parse(localStorage.getItem('listItem4')) ?? []
-    bookList.forEach(function (value, i) {
+    tasklist = JSON.parse(localStorage.getItem('listItem4')) ?? []
+    tasklist.forEach(function (value, i) {
 
         var table = document.getElementById('table')
         // if(value.isComplete == 0){
         table.innerHTML += `
             <tr>
                 <td>${i + 1}</td>
-                <td>${value.title}</td>
-                <td>${value.author}</td>
-                <td>${value.year}</td>
-                <td><button class="btn btn-sm btn-warning" onclick="read(${value.id},'${value.title}','${value.author}',${value.year})">
+                <td>${value.tasktitle}</td>
+                <td>${value.taskdescr}</td>
+                <td>${value.taskdate}</td>
+                <td><button class="btn btn-sm btn-warning" onclick="read(${value.id},'${value.tasktitle}','${value.taskdescr}',${value.taskdate})">
                 <i class="fa fa-check"></i>
                 </button></td>
                 <td>
@@ -88,9 +88,9 @@ function allData() {
 
     })
     table2.innerHTML = ``
-    bookList2 = JSON.parse(localStorage.getItem('listItem3')) ?? []
+    tasklist2 = JSON.parse(localStorage.getItem('listItem3')) ?? []
 
-    bookList2.forEach(function (value2, i) {
+    tasklist2.forEach(function (value2, i) {
 
         var table2 = document.getElementById('table2')
         // console.log(value2.isComplete);
@@ -98,10 +98,10 @@ function allData() {
         table2.innerHTML += `
             <tr>
                 <td>${i + 1}</td>
-                <td>${value2.title}</td>
-                <td>${value2.author}</td>
-                <td>${value2.year}</td>
-                <td><button class="btn btn-sm btn-warning" onclick="read2(${value2.id},'${value2.title}','${value2.author}',${value2.year})">
+                <td>${value2.tasktitle}</td>
+                <td>${value2.taskdescr}</td>
+                <td>${value2.taskdate}</td>
+                <td><button class="btn btn-sm btn-warning" onclick="read2(${value2.id},'${value2.tasktitle}','${value2.taskdescr}',${value2.taskdate})">
                 <i class="fa fa-check"></i>
                 </button></td>
                 <td>
@@ -122,75 +122,75 @@ function allData() {
 }
 function removeData3(id) {
 
-    bookList = JSON.parse(localStorage.getItem('listItem3')) ?? []
-    bookList = bookList.filter(function (value) {
+    tasklist = JSON.parse(localStorage.getItem('listItem3')) ?? []
+    tasklist = tasklist.filter(function (value) {
         return value.id != id;
     });
     // localStorage.clear();
-    localStorage.setItem('listItem3', JSON.stringify(bookList))
+    localStorage.setItem('listItem3', JSON.stringify(tasklist))
     allData()
 }
 function removeData4(id) {
-    bookList = JSON.parse(localStorage.getItem('listItem4')) ?? []
-    bookList = bookList.filter(function (value) {
+    tasklist = JSON.parse(localStorage.getItem('listItem4')) ?? []
+    tasklist = tasklist.filter(function (value) {
         return value.id != id;
     });
-    localStorage.setItem('listItem4', JSON.stringify(bookList))
+    localStorage.setItem('listItem4', JSON.stringify(tasklist))
     allData()
 }
 function find(id) {
-    bookList = JSON.parse(localStorage.getItem('listItem4')) ?? []
-    bookList.forEach(function (value) {
+    tasklist = JSON.parse(localStorage.getItem('listItem4')) ?? []
+    tasklist.forEach(function (value) {
         if (value.id == id) {
             console.log(id);
-            document.getElementById('inputBookId').value = id
-            document.getElementById('inputTaskTitle').value = value.title
-            document.getElementById('inputTaskDescr').value = value.author
-            document.getElementById('inputTaskDate').value = value.year
+            document.getElementById('inputTaskId').value = id
+            document.getElementById('inputTasktitle').value = value.tasktitle
+            document.getElementById('inputTaskDescr').value = value.taskdescr
+            document.getElementById('inputTaskDate').value = value.taskdate
         }
     })
 }
-function read(id1, title1, author1, year1) {
+function read(id1, tasktitle1, taskdescr1, taskdate1) {
     if (id1) {
         var item = [{
             id: id1,
-            title: title1,
-            author: author1,
-            year: year1,
+            tasktitle: tasktitle1,
+            taskdescr: taskdescr1,
+            taskdate: taskdate1,
             isComplete: 1,
         }];
-        bookList = JSON.parse(localStorage.getItem('listItem3')) ?? []
-        books = item.concat(bookList);
-        var itemString = JSON.stringify(books);
+        tasklist = JSON.parse(localStorage.getItem('listItem3')) ?? []
+        tasks = item.concat(tasklist);
+        var itemString = JSON.stringify(tasks);
         localStorage.setItem('listItem3', itemString);
     }
 
-    bookList4 = JSON.parse(localStorage.getItem('listItem4')) ?? []
-    bookList4 = bookList4.filter(function (value) {
+    tasklist4 = JSON.parse(localStorage.getItem('listItem4')) ?? []
+    tasklist4 = tasklist4.filter(function (value) {
         return value.id != id1;
     });
-    localStorage.setItem('listItem4', JSON.stringify(bookList4))
+    localStorage.setItem('listItem4', JSON.stringify(tasklist4))
     allData()
 }
-function read2(id1, title1, author1, year1) {
+function read2(id1, tasktitle1, taskdescr1, taskdate1) {
     if (id1) {
         var item = [{
             id: id1,
-            title: title1,
-            author: author1,
-            year: year1,
+            tasktitle: tasktitle1,
+            taskdescr: taskdescr1,
+            taskdate: taskdate1,
             isComplete: 1,
         }];
-        bookList = JSON.parse(localStorage.getItem('listItem4')) ?? []
-        books = item.concat(bookList);
-        var itemString = JSON.stringify(books);
+        tasklist = JSON.parse(localStorage.getItem('listItem4')) ?? []
+        tasks = item.concat(tasklist);
+        var itemString = JSON.stringify(tasks);
         localStorage.setItem('listItem4', itemString);
     }
 
-    bookList3 = JSON.parse(localStorage.getItem('listItem3')) ?? []
-    bookList3 = bookList3.filter(function (value) {
+    tasklist3 = JSON.parse(localStorage.getItem('listItem3')) ?? []
+    tasklist3 = tasklist3.filter(function (value) {
         return value.id != id1;
     });
-    localStorage.setItem('listItem3', JSON.stringify(bookList3))
+    localStorage.setItem('listItem3', JSON.stringify(tasklist3))
     allData()
 }

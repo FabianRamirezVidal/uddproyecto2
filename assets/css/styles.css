@@ -45,7 +45,6 @@ footer {
     background-color: rgba(60, 60, 60, 0.601);
     color: white;
     text-align: center;
-    margin-top: 50px;
     display: flex;
     list-style: none;
     justify-content: center;
@@ -82,10 +81,6 @@ li a {
 
 li a:hover:not(.active) {
     background-color: rgb(17, 17, 17);
-}
-
-.active {
-    background-color: #33033b;
 }
 
 /* Other Styles */

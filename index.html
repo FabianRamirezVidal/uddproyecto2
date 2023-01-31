@@ -14,10 +14,7 @@
 <body>
     <header class="header" >
         <ul>
-            <li><a href="#home">Inicio</a></li>
-            <li><a href="#products">Productos</a></li>
-            <li><a href="#process">Proceso</a></li>
-            <li style="float:right"><a class="active" href="#register">Registro</a></li>
+            <li><a href="#home">Listado de tarea </a></li>
         </ul>
     </header>
     <main>
@@ -32,21 +29,21 @@
                     <div class="card">
                         <div class="card-body">
                             <form id="form">
-                                <input type="hidden" name="id" id="inputBookId">
-                                <label for="inputTaskTitle">Tarea</label>
+                                <input type="hidden" name="id" id="inputTaskId">
+                                <label for="inputTasktitle">Tarea</label>
                                 <input type="text" placeholder="Nombre de la tarea a realizar" class="form-control"
-                                    id="inputTaskTitle" required>
+                                    id="inputTasktitle" required>
                                 <br>
                                 <label for="inputTaskDescr">Descripción</label>
                                 <input type="text" placeholder="Breve Descripción" class="form-control"
                                     id="inputTaskDescr" required>
                                 <br>
-                                <label for="inputTaskDate">Fecha límite</label>
-                                <input type="date" placeholder="dd-mm-aaaa" class="form-control" id="inputTaskDate"
+                                <label for="inputTaskDate">Días para realizar</label>
+                                <input type="number" placeholder="Días para realizar" class="form-control" id="inputTaskDate"
                                     required>
                                 <br>
-                                <label for="inputBookIsComplete">Tarea realizada</label>
-                                <input id="inputBookIsComplete" type="checkbox">
+                                <label for="inputTaskIsComplete">Tarea realizada</label>
+                                <input id="inputTaskIsComplete" type="checkbox">
                                 <br>
                                 <br>
                                 <button class="btn btn-sm btn-primary" type="button" onclick="save()">Guardar</button>
@@ -67,7 +64,7 @@
                                             <th>No</th>
                                             <th>Tarea</th>
                                             <th>Descripción</th>
-                                            <th>Fecha limite</th>
+                                            <th>Días para realizar</th>
                                             <th>Hecho</th>
                                             <th>Editar</th>
                                             <th>Eliminar</th>
@@ -87,7 +84,7 @@
                                             <th>No</th>
                                             <th>Tarea</th>
                                             <th>Descripción</th>
-                                            <th>Fecha límite</th>
+                                            <th>Días para realizar</th>
                                             <th>No hecho</th>
                                             <th>Editar</th>
                                             <th>Eliminar</th>
@@ -105,10 +102,7 @@
         </div>
     </main>
     <footer>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#products">Productos</a></li>
-        <li><a href="#process">Proceso productivo</a></li>
-        <li><a href="#register">Registro</a></li>
+        <li><a href="#home">Listado de tareas</a></li>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
