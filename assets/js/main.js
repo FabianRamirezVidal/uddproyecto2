@@ -8,9 +8,9 @@ function save() {
         if (document.getElementById('inputBookId').value) {
             bookList.forEach(value => {
                 if (document.getElementById('inputBookId').value == value.id) {
-                    value.title = document.getElementById('inputBookTitle').value,
-                        value.author = document.getElementById('inputBookAuthor').value,
-                        value.year = document.getElementById('inputBookYear').value,
+                    value.title = document.getElementById('inputTaskTitle').value,
+                        value.author = document.getElementById('inputTaskDescr').value,
+                        value.year = document.getElementById('inputTaskDate').value,
                         value.isComplete = 1
                 }
             });
@@ -18,9 +18,9 @@ function save() {
         } else {
             var item = {
                 id: id + 1,
-                title: document.getElementById('inputBookTitle').value,
-                author: document.getElementById('inputBookAuthor').value,
-                year: document.getElementById('inputBookYear').value,
+                title: document.getElementById('inputTaskTitle').value,
+                author: document.getElementById('inputTaskDescr').value,
+                year: document.getElementById('inputTaskDate').value,
                 isComplete: 1,
             }
             bookList.push(item)
@@ -34,9 +34,9 @@ function save() {
         if (document.getElementById('inputBookId').value) {
             bookList2.forEach(value => {
                 if (document.getElementById('inputBookId').value == value.id) {
-                    value.title = document.getElementById('inputBookTitle').value,
-                        value.author = document.getElementById('inputBookAuthor').value,
-                        value.year = document.getElementById('inputBookYear').value,
+                    value.title = document.getElementById('inputTaskTitle').value,
+                        value.author = document.getElementById('inputTaskDescr').value,
+                        value.year = document.getElementById('inputTaskDate').value,
                         value.isComplete = 0
                 }
             });
@@ -44,9 +44,9 @@ function save() {
         } else {
             var item = {
                 id: id + 1,
-                title: document.getElementById('inputBookTitle').value,
-                author: document.getElementById('inputBookAuthor').value,
-                year: document.getElementById('inputBookYear').value,
+                title: document.getElementById('inputTaskTitle').value,
+                author: document.getElementById('inputTaskDescr').value,
+                year: document.getElementById('inputTaskDate').value,
                 isComplete: 0,
             }
             bookList2.push(item)
@@ -144,9 +144,9 @@ function find(id) {
         if (value.id == id) {
             console.log(id);
             document.getElementById('inputBookId').value = id
-            document.getElementById('inputBookTitle').value = value.title
-            document.getElementById('inputBookAuthor').value = value.author
-            document.getElementById('inputBookYear').value = value.year
+            document.getElementById('inputTaskTitle').value = value.title
+            document.getElementById('inputTaskDescr').value = value.author
+            document.getElementById('inputTaskDate').value = value.year
         }
     })
 }
